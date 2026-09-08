@@ -1,0 +1,109 @@
+*{box-sizing:border-box}
+:root{
+  --pink:#ff6fa3;--pink2:#f7a5bf;--light:#ffeaf2;--dark:#663f51;
+  --white:#fffafd;--green:#63a96a;--green2:#2d7048;--yellow:#ffd85b;
+}
+html,body{margin:0;min-height:100%;background:#171522}
+body{font-family:"Be Vietnam Pro",sans-serif;display:flex;justify-content:center;overflow-x:hidden;min-height:100dvh;background:radial-gradient(circle at 50% 20%,#ffbfd2 0%,#f47fa6 42%,#e65c8d 100%)}
+button{font:inherit}
+.game{position:relative;width:min(100vw,900px);min-height:100dvh;background:#000;overflow:hidden;box-shadow:0 0 50px #000;isolation:isolate}
+.top-note{position:absolute;z-index:50;top:0;left:0;width:100%;height:86px;background:#000;color:#fff;text-align:center;padding:27px 45px 0;font-size:12px;font-weight:700;line-height:1.35}
+.screen{display:none;position:absolute;top:86px;bottom:0;width:100%;min-height:calc(100dvh - 86px);height:calc(100dvh - 86px);animation:in .45s ease both}
+.screen.active{display:block}
+@keyframes in{from{opacity:0;transform:translateX(22px)}to{opacity:1;transform:none}}
+.sky{position:absolute;inset:0;background:#f39ab8;overflow:hidden}
+.start-pink{position:absolute;inset:0;background:linear-gradient(135deg,#ff3f7e,#ff6b9f);display:grid;place-items:center}
+.start-pink:before,.start-pink:after{content:"";position:absolute;top:0;bottom:0;width:3px;background:#4e2738;opacity:.8}
+.start-pink:before{left:22%}.start-pink:after{right:22%}
+.start-card{position:relative;width:78%;text-align:center;color:#fff}
+.start-card h1{font-family:"Chakra Petch",sans-serif;font-size:38px;line-height:1.08;margin:12px 0}
+.start-card h1 span{color:#ffe6ef}
+.start-card .mini{font-size:11px;letter-spacing:3px;font-weight:800}
+.start-card .sub{font-size:12px;line-height:1.7;margin:20px auto 28px;max-width:350px}
+.start-sparkle{position:absolute;font-size:80px;color:#ffd6e5;opacity:.5;top:12%;left:12%}
+.pixel-btn,.choice{border:3px solid #ef6d9b;background:#fff9fc;color:#e8588a;box-shadow:4px 4px 0 #d64f80;cursor:pointer;font-family:"Chakra Petch","Be Vietnam Pro",sans-serif;font-weight:700;transition:.12s}
+.pixel-btn{padding:11px 28px;min-width:150px;font-size:13px}
+.pixel-btn span{font-size:22px;vertical-align:-2px;margin-left:10px}
+.pixel-btn:hover,.choice:hover{transform:translate(2px,2px);box-shadow:2px 2px 0 #d64f80}
+.pixel-btn:active,.choice:active{transform:translate(4px,4px);box-shadow:none}
+.cloud{position:absolute;width:110px;height:28px;background:#ffeaf0;opacity:.9}
+.cloud:before,.cloud:after{content:"";position:absolute;background:#ffeaf0;border-radius:50%}
+.cloud:before{width:38px;height:38px;left:17px;top:-19px}.cloud:after{width:48px;height:48px;right:16px;top:-24px}
+.c1{top:45px;left:-15px}.c2{top:105px;right:-18px}.c3{top:205px;left:35%}
+.hearts{position:absolute;top:25px;left:25px;color:#fff;font-size:17px;letter-spacing:5px}
+.small-hearts{top:23px;font-size:13px}
+.message-box,.question-box{position:absolute;background:#fff9fc;border:5px solid #f6d8e4;box-shadow:0 0 0 3px #ff67a0;z-index:5}
+.message-box{left:11%;top:27%;width:54%;padding:17px 25px 17px 18px}
+.message-box p,.question-box p{margin:0;color:#e96893;font-family:"Chakra Petch","Be Vietnam Pro",sans-serif;font-size:15px;font-weight:700;line-height:1.45}
+.arrow{position:absolute;right:10px;bottom:6px;color:#ffb900;font-size:24px}
+.pixel-girl{position:absolute;right:9%;bottom:70px;width:105px;height:180px;z-index:4}
+.pixel-girl .hair{position:absolute;width:68px;height:82px;background:#4b302d;left:20px;top:0;border-radius:48% 48% 38% 38%;box-shadow:10px 5px 0 #4b302d}
+.pixel-girl .face{position:absolute;width:48px;height:56px;background:#f8cdb9;left:31px;top:31px;border-radius:40%;z-index:2}
+.pixel-girl .face:after{content:"•  •";position:absolute;top:20px;left:9px;color:#583b3d;font-size:8px;word-spacing:10px}
+.pixel-girl .body{position:absolute;width:48px;height:50px;background:#fff3e5;left:31px;top:86px;border-radius:7px 7px 16px 16px}
+.pixel-girl .dress{position:absolute;width:65px;height:65px;background:#e978a0;left:23px;top:112px;clip-path:polygon(20% 0,80% 0,100% 100%,0 100%)}
+.pixel-girl .leg{position:absolute;width:12px;height:35px;background:#f2c2b0;bottom:7px}.pixel-girl .l{left:36px}.pixel-girl .r{left:65px}
+.flower-bed{position:absolute;bottom:0;left:0;width:100%;height:72px;background:linear-gradient(#4d934c 0 22%,#236d3c 23% 32%,#75411d 33% 100%)}
+.flower-bed:before{content:"✿  ❀  ✿  ❀  ✿  ❀  ✿  ❀  ✿  ❀  ✿";position:absolute;top:-13px;left:0;width:100%;color:#fce4ee;font-size:22px;letter-spacing:6px;text-shadow:0 2px #38773d}
+.bottom-btn{position:absolute;z-index:10;bottom:22px;left:50%;transform:translateX(-50%);min-width:160px}
+.bottom-btn:hover{transform:translate(calc(-50% + 2px),2px)}
+.question-box{top:22%;left:10%;width:80%;padding:19px;text-align:center}
+.question-box p{font-size:17px}
+.choices{position:absolute;z-index:8;top:52%;left:0;width:100%;display:flex;gap:18px;justify-content:center}
+.choice{padding:11px 17px;font-size:11px;min-width:145px}
+.tiny-cat{position:absolute;right:18px;bottom:69px;font-size:45px;filter:drop-shadow(2px 2px 0 #633f4d)}
+.result{display:flex;flex-direction:column;align-items:center;justify-content:center;padding-bottom:45px;text-align:center}
+.star{font-size:105px;color:#ffd84d;text-shadow:4px 4px 0 #c38c32,0 0 20px #fff;animation:float 1.5s infinite ease-in-out}
+.bouquet{font-size:100px;animation:float 1.5s infinite ease-in-out}
+@keyframes float{50%{transform:translateY(-10px) rotate(3deg)}}
+.result-text{font-family:"Chakra Petch","Be Vietnam Pro",sans-serif;color:#fff;font-size:13px;line-height:1.8;margin:12px 0 30px;text-shadow:2px 2px #ba587d}
+.result-text b{font-size:17px}
+.music-screen{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:30px}
+.music-hearts{position:absolute;top:30px;color:#fff;font-size:18px;letter-spacing:7px}
+.music-card{display:flex;width:88%;padding:16px;background:#fff8fb;border:4px solid #ef78a1;box-shadow:7px 7px 0 #c9577f}
+.album{width:82px;height:82px;display:grid;place-items:center;background:#f5a5bd;color:#fff;font-size:48px;font-family:serif;border:3px solid #fff}
+.song-info{padding:4px 0 0 15px;flex:1;color:#704052}
+.song-info strong{display:block;font-family:"Chakra Petch","Be Vietnam Pro",sans-serif;font-size:15px}.song-info span{font-size:10px;opacity:.75}
+.progress{height:5px;background:#efd4dd;margin:17px 0 8px}.progress i{display:block;width:35%;height:100%;background:#e96c96}
+.controls{display:flex;align-items:center;gap:9px;font-size:10px}.controls button{border:0;background:none;color:#d95180;font-size:17px}.grow{flex:1}
+.music-hint{font-size:10px;color:#fff;margin:20px 0 20px;text-align:center}
+.letter-scene{position:absolute;inset:0;background:linear-gradient(135deg,#ffb3c8,#f37d9f);overflow:auto;padding:35px 20px 75px}
+.petal{position:absolute;color:#fff;opacity:.75;font-size:55px}.p1{left:7%;top:5%}.p2{right:6%;top:15%;font-size:70px}.p3{left:13%;bottom:10%}
+.letter{position:relative;width:min(92%,480px);margin:20px auto 0;background:#fffdf8;color:#54424a;padding:40px 31px 34px;box-shadow:0 12px 0 #c96583,0 18px 35px #b64c6d66;transform:rotate(-1deg)}
+.letter:before{content:"";position:absolute;inset:12px;border:1px dashed #e8a1b2;pointer-events:none}
+.tape{position:absolute;right:30px;top:5px;font-size:30px;color:#ef83a5}
+.letter-date{font-size:10px;color:#ba7c8e;text-align:right;margin:0 0 14px}
+.letter h2{font-family:"Chakra Petch","Be Vietnam Pro",sans-serif;color:#d95e89;font-size:23px;margin:0 0 17px}
+.letter p{position:relative;font-family:"Be Vietnam Pro",sans-serif;font-size:12px;line-height:1.9;margin:13px 0}
+.signature{text-align:right;color:#c45e80;font-weight:700}
+.photo-placeholder{height:115px;margin-top:20px;background:#f4cad6;border:5px solid #fff;outline:2px solid #df8da8;display:grid;place-items:center;text-align:center;color:#bd6d87;font-size:12px;font-weight:800}
+.photo-placeholder small{font-weight:500;font-size:9px}
+.restart{position:relative;display:block;margin:27px auto 0;background:#fff;color:#d85e89;border:2px solid #d85e89;padding:9px 18px;cursor:pointer;font-weight:700}
+.shake{animation:shake .35s ease}
+@keyframes shake{25%{transform:translateX(-8px)}50%{transform:translateX(8px)}75%{transform:translateX(-5px)}}
+@media(max-width:420px){.top-note{font-size:10px;height:76px;padding-top:24px}.screen{top:76px}.start-card h1{font-size:31px}.message-box{width:61%;left:7%}.message-box p{font-size:12px}.pixel-girl{right:2%;transform:scale(.9);transform-origin:bottom right}.choices{gap:8px}.choice{min-width:135px;padding:10px 8px;font-size:10px}.letter{padding:35px 24px 28px}}
+
+
+/* Responsive: khung tự thích nghi với điện thoại / máy tính */
+@media (min-width: 700px){
+  body{padding:24px 0;background:radial-gradient(circle at 50% 30%,#ffd3df 0%,#f79ab7 38%,#c94d79 100%)}
+  .game{width:min(92vw,900px);height:calc(100dvh - 48px);min-height:680px;border-radius:24px;box-shadow:0 18px 70px #6e274688}
+  .screen{min-height:calc(100% - 86px);height:calc(100% - 86px)}
+  .start-card{width:62%;transform:scale(1.05)}
+  .message-box{left:13%;top:27%;width:48%}
+  .pixel-girl{right:13%;transform:scale(1.15);transform-origin:bottom right}
+  .question-box{width:62%;left:19%}
+  .choices{gap:28px}
+  .choice{min-width:180px;font-size:12px}
+  .letter{width:min(76%,620px)}
+}
+@media (max-width:699px){
+  body{background:#f47fa6}
+  .game{width:100vw;min-height:100dvh}
+}
+@media (max-width:380px){
+  .start-card h1{font-size:27px}
+  .message-box{width:64%}
+  .question-box p{font-size:15px}
+  .choice{min-width:126px;font-size:9px}
+}
