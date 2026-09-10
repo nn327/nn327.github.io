@@ -1,126 +1,205 @@
-@import url("https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Patrick+Hand&display=swap");
-*{box-sizing:border-box}
-:root{
-  --pink:#ff6fa3;--pink2:#f7a5bf;--light:#ffeaf2;--dark:#663f51;
-  --white:#fffafd;--green:#63a96a;--green2:#2d7048;--yellow:#ffd85b;
-}
-html,body{margin:0;min-height:100%;background:#171522}
-body{font-family:"Be Vietnam Pro",sans-serif;display:flex;justify-content:center;overflow-x:hidden;min-height:100dvh;background:radial-gradient(circle at 50% 20%,#ffbfd2 0%,#f47fa6 42%,#e65c8d 100%)}
-button{font:inherit}
-.game{position:relative;width:min(100vw,900px);min-height:100dvh;background:#000;overflow:hidden;box-shadow:0 0 50px #000;isolation:isolate}
-.top-note{position:absolute;z-index:50;top:0;left:0;width:100%;height:86px;background:#000;color:#fff;text-align:center;padding:27px 45px 0;font-size:12px;font-weight:700;line-height:1.35}
-.screen{display:none;position:absolute;top:86px;bottom:0;width:100%;min-height:calc(100dvh - 86px);height:calc(100dvh - 86px);animation:in .45s ease both}
-.screen.active{display:block}
-@keyframes in{from{opacity:0;transform:translateX(22px)}to{opacity:1;transform:none}}
-.sky{position:absolute;inset:0;background:#f39ab8;overflow:hidden}
-.start-pink{position:absolute;inset:0;background:linear-gradient(135deg,#ff3f7e,#ff6b9f);display:grid;place-items:center}
-.start-pink:before,.start-pink:after{content:"";position:absolute;top:0;bottom:0;width:3px;background:#4e2738;opacity:.8}
-.start-pink:before{left:22%}.start-pink:after{right:22%}
-.start-card{position:relative;width:78%;text-align:center;color:#fff}
-.start-card h1{font-family:"Chakra Petch",sans-serif;font-size:38px;line-height:1.08;margin:12px 0}
-.start-card h1 span{color:#ffe6ef}
-.start-card .mini{font-size:11px;letter-spacing:3px;font-weight:800}
-.start-card .sub{font-size:12px;line-height:1.7;margin:20px auto 28px;max-width:350px}
-.start-sparkle{position:absolute;font-size:80px;color:#ffd6e5;opacity:.5;top:12%;left:12%}
-.pixel-btn,.choice{border:3px solid #ef6d9b;background:#fff9fc;color:#e8588a;box-shadow:4px 4px 0 #d64f80;cursor:pointer;font-family:"Chakra Petch","Be Vietnam Pro",sans-serif;font-weight:700;transition:.12s}
-.pixel-btn{padding:11px 28px;min-width:150px;font-size:13px}
-.pixel-btn span{font-size:22px;vertical-align:-2px;margin-left:10px}
-.pixel-btn:hover,.choice:hover{transform:translate(2px,2px);box-shadow:2px 2px 0 #d64f80}
-.pixel-btn:active,.choice:active{transform:translate(4px,4px);box-shadow:none}
-.cloud{position:absolute;width:110px;height:28px;background:#ffeaf0;opacity:.9}
-.cloud:before,.cloud:after{content:"";position:absolute;background:#ffeaf0;border-radius:50%}
-.cloud:before{width:38px;height:38px;left:17px;top:-19px}.cloud:after{width:48px;height:48px;right:16px;top:-24px}
-.c1{top:45px;left:-15px}.c2{top:105px;right:-18px}.c3{top:205px;left:35%}
-.hearts{position:absolute;top:25px;left:25px;color:#fff;font-size:17px;letter-spacing:5px}
-.small-hearts{top:23px;font-size:13px}
-.message-box,.question-box{position:absolute;background:#fff9fc;border:5px solid #f6d8e4;box-shadow:0 0 0 3px #ff67a0;z-index:5}
-.message-box{left:11%;top:27%;width:54%;padding:17px 25px 17px 18px}
-.message-box p,.question-box p{margin:0;color:#e96893;font-family:"Chakra Petch","Be Vietnam Pro",sans-serif;font-size:15px;font-weight:700;line-height:1.45}
-.arrow{position:absolute;right:10px;bottom:6px;color:#ffb900;font-size:24px}
-.pixel-girl{position:absolute;right:9%;bottom:70px;width:105px;height:180px;z-index:4}
-.pixel-girl .hair{position:absolute;width:68px;height:82px;background:#4b302d;left:20px;top:0;border-radius:48% 48% 38% 38%;box-shadow:10px 5px 0 #4b302d}
-.pixel-girl .face{position:absolute;width:48px;height:56px;background:#f8cdb9;left:31px;top:31px;border-radius:40%;z-index:2}
-.pixel-girl .face:after{content:"•  •";position:absolute;top:20px;left:9px;color:#583b3d;font-size:8px;word-spacing:10px}
-.pixel-girl .body{position:absolute;width:48px;height:50px;background:#fff3e5;left:31px;top:86px;border-radius:7px 7px 16px 16px}
-.pixel-girl .dress{position:absolute;width:65px;height:65px;background:#e978a0;left:23px;top:112px;clip-path:polygon(20% 0,80% 0,100% 100%,0 100%)}
-.pixel-girl .leg{position:absolute;width:12px;height:35px;background:#f2c2b0;bottom:7px}.pixel-girl .l{left:36px}.pixel-girl .r{left:65px}
-.flower-bed{position:absolute;bottom:0;left:0;width:100%;height:72px;background:linear-gradient(#4d934c 0 22%,#236d3c 23% 32%,#75411d 33% 100%)}
-.flower-bed:before{content:"✿  ❀  ✿  ❀  ✿  ❀  ✿  ❀  ✿  ❀  ✿";position:absolute;top:-13px;left:0;width:100%;color:#fce4ee;font-size:22px;letter-spacing:6px;text-shadow:0 2px #38773d}
-.bottom-btn{position:absolute;z-index:10;bottom:22px;left:50%;transform:translateX(-50%);min-width:160px}
-.bottom-btn:hover{transform:translate(calc(-50% + 2px),2px)}
-.question-box{top:22%;left:10%;width:80%;padding:19px;text-align:center}
-.question-box p{font-size:17px}
-.choices{position:absolute;z-index:8;top:52%;left:0;width:100%;display:flex;gap:18px;justify-content:center}
-.choice{padding:11px 17px;font-size:11px;min-width:145px}
-.tiny-cat{position:absolute;right:18px;bottom:69px;font-size:45px;filter:drop-shadow(2px 2px 0 #633f4d)}
-.result{display:flex;flex-direction:column;align-items:center;justify-content:center;padding-bottom:45px;text-align:center}
-.star{font-size:105px;color:#ffd84d;text-shadow:4px 4px 0 #c38c32,0 0 20px #fff;animation:float 1.5s infinite ease-in-out}
-.bouquet{font-size:100px;animation:float 1.5s infinite ease-in-out}
-@keyframes float{50%{transform:translateY(-10px) rotate(3deg)}}
-.result-text{font-family:"Chakra Petch","Be Vietnam Pro",sans-serif;color:#fff;font-size:13px;line-height:1.8;margin:12px 0 30px;text-shadow:2px 2px #ba587d}
-.result-text b{font-size:17px}
-.music-screen{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:30px}
-.music-hearts{position:absolute;top:30px;color:#fff;font-size:18px;letter-spacing:7px}
-.music-card{display:flex;width:88%;padding:16px;background:#fff8fb;border:4px solid #ef78a1;box-shadow:7px 7px 0 #c9577f}
-.album{width:82px;height:82px;display:grid;place-items:center;background:#f5a5bd;color:#fff;font-size:48px;font-family:serif;border:3px solid #fff}
-.song-info{padding:4px 0 0 15px;flex:1;color:#704052}
-.song-info strong{display:block;font-family:"Chakra Petch","Be Vietnam Pro",sans-serif;font-size:15px}.song-info span{font-size:10px;opacity:.75}
-.progress{height:5px;background:#efd4dd;margin:17px 0 8px}.progress i{display:block;width:35%;height:100%;background:#e96c96}
-.controls{display:flex;align-items:center;gap:9px;font-size:10px}.controls button{border:0;background:none;color:#d95180;font-size:17px}.grow{flex:1}
-.music-hint{font-size:10px;color:#fff;margin:20px 0 20px;text-align:center}
-.letter-scene{position:absolute;inset:0;background:linear-gradient(135deg,#ffb3c8,#f37d9f);overflow:auto;padding:35px 20px 75px}
-.petal{position:absolute;color:#fff;opacity:.75;font-size:55px}.p1{left:7%;top:5%}.p2{right:6%;top:15%;font-size:70px}.p3{left:13%;bottom:10%}
-.letter{position:relative;width:min(92%,480px);margin:20px auto 0;background:#fffdf8;color:#54424a;padding:40px 31px 34px;box-shadow:0 12px 0 #c96583,0 18px 35px #b64c6d66;transform:rotate(-1deg)}
-.letter:before{content:"";position:absolute;inset:12px;border:1px dashed #e8a1b2;pointer-events:none}
-.tape{position:absolute;right:30px;top:5px;font-size:30px;color:#ef83a5}
-.letter-date{font-size:10px;color:#ba7c8e;text-align:right;margin:0 0 14px}
-.letter h2{font-family:"Chakra Petch","Be Vietnam Pro",sans-serif;color:#d95e89;font-size:23px;margin:0 0 17px}
-.letter p{position:relative;font-family:"Be Vietnam Pro",sans-serif;font-size:12px;line-height:1.9;margin:13px 0}
-.signature{text-align:right;color:#c45e80;font-weight:700}
-.photo-placeholder{height:115px;margin-top:20px;background:#f4cad6;border:5px solid #fff;outline:2px solid #df8da8;display:grid;place-items:center;text-align:center;color:#bd6d87;font-size:12px;font-weight:800}
-.photo-placeholder small{font-weight:500;font-size:9px}
-.restart{position:relative;display:block;margin:27px auto 0;background:#fff;color:#d85e89;border:2px solid #d85e89;padding:9px 18px;cursor:pointer;font-weight:700}
-.shake{animation:shake .35s ease}
-@keyframes shake{25%{transform:translateX(-8px)}50%{transform:translateX(8px)}75%{transform:translateX(-5px)}}
-@media(max-width:420px){.top-note{font-size:10px;height:76px;padding-top:24px}.screen{top:76px}.start-card h1{font-size:31px}.message-box{width:61%;left:7%}.message-box p{font-size:12px}.pixel-girl{right:2%;transform:scale(.9);transform-origin:bottom right}.choices{gap:8px}.choice{min-width:135px;padding:10px 8px;font-size:10px}.letter{padding:35px 24px 28px}}
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden}body{font-family:"Be Vietnam Pro",sans-serif;color:#443847;background:#f9edf2}button,input{font:inherit}.hidden{display:none!important}.screen,.love-screen,.scene{width:100%;height:100%;position:relative}.screen{overflow:hidden}.intro-screen{background:url("assets/floral-bg.svg") center/cover no-repeat;display:grid;place-items:center}.intro-overlay{position:absolute;inset:0;background:linear-gradient(120deg,rgba(255,245,250,.18),rgba(220,240,238,.24))}.petal-field{position:absolute;inset:0;background-image:radial-gradient(circle at 14% 18%,rgba(244,145,183,.65) 0 3px,transparent 4px),radial-gradient(circle at 80% 28%,rgba(124,174,201,.6) 0 3px,transparent 4px),radial-gradient(circle at 62% 76%,rgba(125,181,139,.55) 0 4px,transparent 5px);animation:twinkle 4s ease-in-out infinite alternate}.intro-card{position:relative;width:min(760px,88vw);padding:44px 48px 40px;text-align:center;background:rgba(255,251,251,.88);border:5px solid #fff;outline:3px solid #a96c89;box-shadow:0 0 0 9px rgba(255,255,255,.45),12px 14px 0 rgba(79,125,128,.16);z-index:2}.intro-card:before,.intro-card:after{content:"";position:absolute;inset:11px;border:2px solid #d88aaa;pointer-events:none}.intro-card:after{inset:17px;border:1px dashed #8ab5ac}.tiny-bow{font-family:"Cormorant Garamond";font-size:30px;color:#b45579}.eyebrow,.title-kicker,.journey-kicker{font-size:12px;letter-spacing:4px;font-weight:800;color:#6c8782;margin:4px 0 12px}.intro-card h1{font-family:"Cormorant Garamond",serif;font-size:clamp(32px,5vw,58px);line-height:1.03;margin:0 0 18px;color:#5d4051}.intro-copy{font-family:"Cormorant Garamond",serif;font-size:22px;line-height:1.35;margin:0 auto 26px;max-width:610px;color:#5f5960}.rect-btn{position:relative;display:inline-block;border:3px solid #7b5368;background:#fff7fb;color:#6b4054;padding:12px 25px;cursor:pointer;box-shadow:5px 5px 0 #b7d0ca;transition:.25s}.rect-btn:before{content:"";position:absolute;inset:4px;border:1px solid #d48aa8;pointer-events:none}.rect-btn:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 #b7d0ca}.floating-flower{position:absolute;font-size:34px;opacity:.65;animation:float 6s ease-in-out infinite}.flower-1{left:8%;top:18%;color:#e582aa}.flower-2{right:11%;top:24%;color:#73aeb7;animation-delay:1s}.flower-3{left:14%;bottom:15%;color:#78aa78;animation-delay:2s}.flower-4{right:9%;bottom:17%;color:#db7d9e;animation-delay:3s}
 
+.choice-screen{background:url("assets/floral-bg.svg") center/cover no-repeat;display:flex;flex-direction:column;align-items:center;justify-content:center}.choice-overlay{position:absolute;inset:0;background:rgba(251,247,248,.36)}.choice-title{position:relative;z-index:2;text-align:center;margin-top:-2vh}.choice-title h2{font-family:"Cormorant Garamond",serif;font-size:clamp(38px,5vw,66px);margin:0;color:#4c4050}.choice-title p{font-family:"Cormorant Garamond";font-size:20px;margin:8px 0 0;color:#687b78}.characters{position:relative;z-index:3;width:min(1050px,92vw);height:min(55vh,500px);margin-top:18px}.character-card{position:absolute;background:transparent;border:0;padding:0;width:clamp(240px,29vw,340px);aspect-ratio:1/1;cursor:pointer;transition:transform .75s cubic-bezier(.2,.9,.2,1),left .75s,bottom .75s,right .75s,top .75s;filter:drop-shadow(10px 14px 0 rgba(65,93,99,.12))}.character-card.dazai{left:5%;bottom:0}.character-card.levi{right:5%;bottom:0}.character-frame{position:absolute;inset:0;display:block}.character-frame img{width:100%;height:100%;display:block}.character-img{position:absolute;inset:8%;width:84%;height:84%;object-fit:contain;z-index:2;filter:drop-shadow(0 7px 7px rgba(49,43,52,.25))}.character-card:hover{transform:translateY(-10px) rotate(-1deg)}.character-card.levi:hover{transform:translateY(-10px) rotate(1deg)}.character-card.picked{pointer-events:none;transform:scale(.88) rotate(-3deg)}.character-card.levi.picked{transform:scale(.88) rotate(3deg)}.choice-note{position:relative;z-index:4;font-family:"Dancing Script";font-size:25px;color:#87516c;margin-top:5px}.love-answer{position:absolute;inset:0;z-index:5;display:flex;align-items:center;justify-content:center;gap:20px;background:url("assets/reveal-bg.svg") center/cover no-repeat;animation:reveal .9s ease both}.answer-text{font-family:"Cormorant Garamond",serif;font-weight:700;font-size:clamp(65px,11vw,150px);color:#eff6f2;text-shadow:2px 3px 0 #4d6870,6px 7px 0 rgba(49,73,77,.22)}.answer-line{width:min(20vw,220px);height:2px;background:#e9f4ed;box-shadow:0 0 0 2px rgba(86,121,118,.35)}.choice-decor{position:absolute;z-index:2;font-size:42px;opacity:.65}.decor-a{left:6%;top:13%;color:#dc7e9e}.decor-b{right:7%;top:17%;color:#74a8a3}
 
-/* Responsive: khung tự thích nghi với điện thoại / máy tính */
-@media (min-width: 700px){
-  body{padding:24px 0;background:radial-gradient(circle at 50% 30%,#ffd3df 0%,#f79ab7 38%,#c94d79 100%)}
-  .game{width:min(92vw,900px);height:calc(100dvh - 48px);min-height:680px;border-radius:24px;box-shadow:0 18px 70px #6e274688}
-  .screen{min-height:calc(100% - 86px);height:calc(100% - 86px)}
-  .start-card{width:62%;transform:scale(1.05)}
-  .message-box{left:13%;top:27%;width:48%}
-  .pixel-girl{right:13%;transform:scale(1.15);transform-origin:bottom right}
-  .question-box{width:62%;left:19%}
-  .choices{gap:28px}
-  .choice{min-width:180px;font-size:12px}
-  .letter{width:min(76%,620px)}
-}
-@media (max-width:699px){
-  body{background:#f47fa6}
-  .game{width:100vw;min-height:100dvh}
-}
-@media (max-width:380px){
-  .start-card h1{font-size:27px}
-  .message-box{width:64%}
-  .question-box p{font-size:15px}
-  .choice{min-width:126px;font-size:9px}
+.loading-scene{display:grid;place-items:center;background:url("assets/reveal-bg.svg") center/cover no-repeat}.loading-floral-bg{position:absolute;inset:0;background:radial-gradient(circle at 50% 45%,rgba(255,255,255,.78),rgba(255,255,255,.25));}.loading-box{position:relative;z-index:2;width:min(650px,84vw);padding:30px 34px;text-align:center;background:rgba(255,255,255,.85);border:5px solid #6d5363;outline:3px solid #f5e3eb;box-shadow:8px 10px 0 rgba(78,111,113,.22)}.loading-box:after{content:"";position:absolute;inset:10px;border:2px dashed #b98aa0;pointer-events:none}.loading-track{height:28px;border:4px solid #684c5d;padding:4px;background:#fff;position:relative}.loading-track div{height:100%;width:0;background:linear-gradient(90deg,#e992b2,#8bb8b0);transition:width .08s linear}.loading-percent{font-weight:800;font-size:24px;margin-top:12px;color:#614657}.loading-text{font-family:"Cormorant Garamond";font-weight:700;letter-spacing:3px;font-size:23px;margin-top:4px}.loading-hearts{position:absolute;inset:0;overflow:hidden}.loading-hearts span{position:absolute;font-size:20px;animation:rise 4s linear infinite;color:#e984a7}
+
+.journey-scene{background:#eef5f0;overflow:hidden}.journey-sky{position:absolute;inset:0;background:linear-gradient(#dceef1 0%,#edf4ed 66%,#e7d6dd 100%)}.journey-sky:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 14% 23%,rgba(235,145,176,.35) 0 2px,transparent 3px),radial-gradient(circle at 83% 18%,rgba(106,158,171,.34) 0 3px,transparent 4px)}.cloud{position:absolute;width:190px;height:55px;background:rgba(255,255,255,.7);border:2px solid rgba(150,171,170,.45);filter:blur(.2px);transform:skewX(-9deg)}.cloud:before,.cloud:after{content:"";position:absolute;border:2px solid rgba(150,171,170,.35);background:rgba(255,255,255,.7)}.cloud:before{width:70px;height:70px;left:24px;bottom:0}.cloud:after{width:52px;height:52px;left:82px;bottom:0}.cloud-a{left:5%;top:11%}.cloud-b{right:7%;top:25%;transform:scale(.75) skewX(-9deg)}.welcome-card{position:absolute;z-index:4;top:7%;left:50%;transform:translateX(-50%);width:min(470px,84vw);padding:24px 28px;background:rgba(255,252,252,.94);border:4px solid #6d5363;outline:2px solid #d8b5c4;box-shadow:9px 10px 0 rgba(68,103,104,.2)}.welcome-card:before{content:"";position:absolute;inset:8px;border:2px dashed #a5c5bc;pointer-events:none}.welcome-card h2{font-family:"Cormorant Garamond";font-size:34px;text-align:center;margin:0 0 10px;color:#68475a}.journey-kicker{text-align:center;margin:0 0 4px}.welcome-row{display:flex;align-items:center;gap:10px}.slider-arrow{width:38px;height:38px;background:#fff;border:3px solid #6d5363;color:#6d5363;font-size:27px;cursor:pointer}.love-picture{flex:1}.love-picture svg{display:block;width:100%;height:auto}.name-label{display:block;margin:13px 0 5px;font-weight:700;color:#657975}.name-input{width:100%;height:44px;border:3px solid #6d5363;background:#fff;outline:2px solid #d9b9c7;outline-offset:2px;padding:8px 12px;color:#51404a}.small-open{margin-top:13px;width:100%;padding:10px 14px}.name-error{min-height:20px;color:#9c3e62;font-size:12px;margin-top:5px}.road{position:absolute;left:0;right:0;bottom:9%;height:30px;background:#8f7190;display:flex;align-items:center;gap:44px;padding:0 20px;overflow:hidden}.road span{min-width:72px;height:5px;background:#ead6df}.bus{position:absolute;z-index:5;left:-280px;bottom:12%;width:255px;height:102px;animation:busRide 9s linear infinite}.bus img{width:100%;height:100%;display:block;object-fit:contain}.heart-particles{position:absolute;inset:0;pointer-events:none;overflow:hidden}.heart-particles span{position:absolute;color:#dc7095;font-size:18px;animation:heartDrift 8s linear infinite}
+
+.letter-scene{position:relative;width:100%;height:100%;overflow:hidden}.letter-backdrop{position:absolute;inset:0;background:url("assets/floral-bg.svg") center/cover no-repeat;filter:brightness(.52) saturate(.85)}.letter-backdrop:after{content:"";position:absolute;inset:0;background:rgba(39,39,55,.34)}.envelope-title{position:absolute;z-index:6;left:50%;top:3%;transform:translateX(-50%);min-width:min(360px,78vw);padding:10px 22px;text-align:center;background:#fffafc;border:3px solid #6d5363;box-shadow:5px 5px 0 rgba(50,69,75,.3)}.envelope-title:after{content:"";position:absolute;inset:4px;border:1px dashed #9ab7b1}.envelope-title span{display:block;font-family:"Cormorant Garamond";font-size:27px;font-weight:700}.envelope-title small{font-size:11px;letter-spacing:2px;color:#667976}.falling-envelopes{position:absolute;inset:0;z-index:3;overflow:hidden}.envelope{position:absolute;width:118px;height:78px;background:#fff8f5;border:4px solid #694e60;box-shadow:5px 6px 0 rgba(39,49,56,.28);cursor:pointer;animation:envelopeFall linear forwards}.envelope:before{content:"";position:absolute;left:50%;top:0;transform:translateX(-50%);width:0;height:0;border-left:56px solid transparent;border-right:56px solid transparent;border-top:38px solid #efb0c7;z-index:2}.envelope:after{content:"";position:absolute;left:0;bottom:0;width:0;height:0;border-left:54px solid transparent;border-right:54px solid transparent;border-bottom:37px solid #d98aa8}.envelope .stamp{position:absolute;right:7px;top:7px;width:17px;height:17px;border:2px solid #779b93;background:#d9eee8;z-index:3}.envelope .mark{position:absolute;left:8px;bottom:6px;font-family:"Dancing Script";font-size:18px;color:#70465a;z-index:3}.envelope.style-1{border-color:#6b5262}.envelope.style-1:before{border-top-color:#efb0c7}.envelope.style-1:after{border-bottom-color:#d98aa8}.envelope.style-2{border-color:#4f6870;background:#f6fbfa}.envelope.style-2:before{border-top-color:#a9d1cb}.envelope.style-2:after{border-bottom-color:#7daaa4}.envelope.style-3{border-color:#66715a;background:#fffdf1}.envelope.style-3:before{border-top-color:#dfe6a8}.envelope.style-3:after{border-bottom-color:#b8c77e}.envelope.style-4{border-color:#735568;background:#fdf7fc}.envelope.style-4:before{border-top-color:#cbb2d8}.envelope.style-4:after{border-bottom-color:#a884b6}.close-layer{position:absolute;right:24px;top:22px;z-index:8;width:42px;height:42px;border:3px solid #fff;background:rgba(49,46,59,.45);color:#fff;font-size:30px;line-height:30px;cursor:pointer}.letter-modal{position:absolute;z-index:10;inset:0;background:rgba(35,31,42,.42);display:grid;place-items:center;padding:20px}.paper-stack{position:relative;width:min(860px,94vw);max-height:88vh}.paper{position:absolute;inset:0;background:#f9f0e7;border:4px solid #6a5360}.paper-back{transform:rotate(-2deg) translate(-12px,12px);background:#e9ddd4}.paper-mid{transform:rotate(1.2deg) translate(8px,8px);background:#f3e8df}.letter{position:relative;background:#fff9f2;border:4px solid #6a5360;box-shadow:12px 13px 0 rgba(29,36,42,.25);min-height:540px;max-height:82vh;overflow:auto}.letter:before{content:"";position:absolute;inset:12px;border:2px solid #d79ab1;pointer-events:none}.letter:after{content:"";position:absolute;inset:18px;border:1px dashed #99b9b0;pointer-events:none}.letter-inner{position:relative;display:grid;grid-template-columns:220px 1fr;gap:25px;padding:42px 48px 38px}.balloon-gift{display:flex;align-items:center;justify-content:center}.balloon-gift svg{width:min(190px,100%);height:auto}.letter-content{position:relative;z-index:2}.letter-content h3{font-family:"Dancing Script";font-size:43px;color:#a34c6f;margin:5px 0}.letter-date{font-size:12px;letter-spacing:2px;color:#71857f;margin-bottom:15px}.typed-text{font-family:"Cormorant Garamond";font-size:23px;line-height:1.5;white-space:pre-wrap;color:#55454e}.typing-cursor{display:inline-block;width:2px;height:22px;background:#a34c6f;animation:blink .7s infinite}.signature{font-family:"Dancing Script";font-size:27px;color:#a34c6f;margin-top:25px}.close-letter{position:absolute;right:17px;top:15px;width:38px;height:38px;background:#fff;border:3px solid #6a5360;color:#6a5360;font-size:27px;cursor:pointer;z-index:4}.letter-deco{position:absolute;font-size:28px;color:#c66f91}.ld1{left:24px;top:24px}.ld2{right:25px;bottom:20px;color:#79a99f}.ld3{left:45%;bottom:20px;color:#b7a35d}.completion-screen{position:absolute;inset:0;z-index:9;display:grid;place-items:center;background:url("assets/reveal-bg.svg") center/cover no-repeat}.completion-frame{width:min(760px,88vw);padding:54px;text-align:center;background:rgba(255,250,248,.9);border:5px solid #5c5661;outline:3px solid #d8b0c1;box-shadow:10px 12px 0 rgba(53,73,78,.22)}.completion-frame:before{content:"";position:absolute;inset:12px;pointer-events:none}.completion-frame p{font-size:12px;letter-spacing:4px;color:#6e817d}.completion-frame h2{font-family:"Cormorant Garamond";font-size:clamp(48px,7vw,88px);line-height:1.05;color:#60465a;margin:16px 0}.completion-flower{font-size:38px;color:#bc7190;margin:0 14px}
+
+@keyframes float{50%{transform:translateY(-20px) rotate(8deg)}100%{transform:translateY(0)}}@keyframes twinkle{from{opacity:.65}to{opacity:1}}@keyframes reveal{from{opacity:0;transform:scale(1.04)}to{opacity:1;transform:scale(1)}}@keyframes rise{from{transform:translateY(105vh) rotate(0);opacity:0}15%{opacity:1}to{transform:translateY(-15vh) rotate(30deg);opacity:0}}@keyframes busRide{from{left:-280px}to{left:calc(100% + 280px)}}@keyframes heartDrift{from{transform:translateY(100vh) rotate(0);opacity:0}15%{opacity:.85}to{transform:translateY(-10vh) rotate(30deg);opacity:0}}@keyframes envelopeFall{from{transform:translate3d(0,-130px,0) rotate(var(--rot));opacity:0}10%{opacity:1}to{transform:translate3d(var(--drift),110vh,0) rotate(calc(var(--rot) + 260deg));opacity:.95}}@keyframes blink{50%{opacity:0}}
+@media(max-width:720px){.intro-card{padding:34px 24px}.intro-copy{font-size:19px}.choice-title h2{font-size:42px}.choice-title p{font-size:17px}.characters{height:58vh;margin-top:5px}.character-card{width:46vw;max-width:250px}.character-card.dazai{left:0;bottom:4%}.character-card.levi{right:0;bottom:4%}.answer-line{width:12vw}.letter-inner{grid-template-columns:1fr;padding:38px 28px 30px}.balloon-gift{display:none}.letter{min-height:480px}.typed-text{font-size:20px}.envelope{width:96px;height:64px}.envelope:before{border-left-width:44px;border-right-width:44px;border-top-width:30px}.envelope:after{border-left-width:43px;border-right-width:43px;border-bottom-width:29px}.welcome-card{top:5%;padding:22px 20px}.road{bottom:10%;gap:25px}.bus{bottom:13%}.completion-frame{padding:38px 25px}.completion-frame h2{font-size:50px}}
+
+/* ================= V5 — Dứa chọn lọc v3 + v4 ================= */
+/* Không bo tròn: ưu tiên khung vuông, viền đậm và viền lồng nhau. */
+.intro-screen,
+.choice-screen{background-image:url("assets/garden-bg.svg");background-size:cover;background-position:center}
+.intro-card,.welcome-card,.loading-box,.envelope-title,.completion-frame,.letter,.paper{border-radius:0!important}
+.rect-btn,.name-input,.slider-arrow,.close-layer,.close-letter,.envelope{border-radius:0!important}
+
+/* Khung nhân vật cùng đúng tỉ lệ 700:1000 của ảnh nhân vật. */
+.characters{height:min(67vh,680px);margin-top:14px}
+.character-card{width:clamp(210px,27vw,315px);aspect-ratio:7/10;transition:transform .55s cubic-bezier(.18,.9,.2,1),left .55s,right .55s,top .55s,bottom .55s;filter:drop-shadow(10px 14px 0 rgba(65,93,99,.15));touch-action:manipulation}
+.character-card.dazai{left:4%;bottom:0}
+.character-card.levi{right:4%;bottom:0}
+.character-frame{inset:0}
+.character-img{inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:2}
+.character-card:hover{transform:translateY(-8px) rotate(-1deg)}
+.character-card.levi:hover{transform:translateY(-8px) rotate(1deg)}
+.character-card.picked{pointer-events:auto}
+.character-card.dazai.picked{transform:rotate(-3deg) scale(.9)}
+.character-card.levi.picked{transform:rotate(3deg) scale(.9)}
+
+/* Bấm vào “Là anh đó” mới chuyển trang, không tự động chuyển. */
+.love-answer{border:0;padding:0;margin:0;width:100%;cursor:pointer;color:inherit;font:inherit}
+.love-answer:focus-visible{outline:4px solid #fff;outline-offset:-12px}
+.answer-text{font-family:"Cormorant Garamond",serif;letter-spacing:2px}
+
+/* Giữ bầu trời/xe của v4, nhưng trả mây về kiểu v3. */
+.cloud{width:170px;height:55px;border:0;border-radius:999px;background:rgba(255,214,230,.35);filter:blur(2px);top:12%;}
+.cloud:before,.cloud:after{border:0;border-radius:50%;background:inherit}
+.cloud:before{width:85px;height:85px;left:24px;bottom:4px}
+.cloud:after{width:65px;height:65px;right:25px;bottom:3px}
+.cloud-a{left:-120px;right:auto;animation:cloudMove 18s linear infinite}
+.cloud-b{right:-140px;left:auto;top:25%;transform:none;animation:cloudMove2 22s linear infinite}
+
+/* 30 phong thư rơi liên tục; mỗi lần chọn một lá, JS sẽ reset toàn bộ lá còn lại từ đầu. */
+.envelope{animation-iteration-count:infinite;animation-fill-mode:both}
+.envelope:hover{transform:scale(1.06)}
+.envelope.style-1{border-style:double;border-width:6px}
+.envelope.style-2{border-style:solid;outline:2px dashed #86aaa5;outline-offset:3px}
+.envelope.style-3{border-style:dashed;border-width:4px;box-shadow:7px 7px 0 rgba(103,120,81,.28)}
+.envelope.style-4{border-style:double;border-width:7px;box-shadow:4px 7px 0 rgba(121,85,127,.28)}
+
+/* Nền hoa cho toàn bộ khu thư + giấy thư. */
+.letter-backdrop{background-image:url("assets/letter-garden-bg.svg");filter:brightness(.64) saturate(.92)}
+.letter-backdrop:after{background:rgba(38,45,55,.24)}
+.letter-modal{background:rgba(47,43,54,.35)}
+.letter{background:url("assets/letter-garden-bg.svg") center/cover no-repeat;color:#55454e}
+.letter:before{background:rgba(255,251,247,.5)}
+.letter-content{background:rgba(255,252,249,.78);padding:12px 18px 18px;border-left:3px solid #d990ad;border-right:3px solid #91b7ad}
+.paper-back{background:url("assets/letter-garden-bg.svg") center/cover no-repeat;opacity:.9}
+.paper-mid{background:url("assets/garden-bg.svg") center/cover no-repeat;opacity:.8}
+
+/* Hoa + tim bay lên trong khu thư. */
+.letter-particles{position:absolute;inset:0;z-index:2;pointer-events:none;overflow:hidden}
+.letter-particles span{position:absolute;bottom:-40px;opacity:0;animation:letterGardenRise linear infinite}
+.letter-particles .heart{color:#df78a1;font-size:clamp(15px,2vw,26px)}
+.letter-particles .flower{color:#7cae88;font-size:clamp(18px,2.2vw,30px)}
+.letter-particles .blue{color:#78afc1}
+.letter-particles .pink{color:#e28caf}
+.letter-particles .green{color:#79a878}
+
+/* Completion dùng nền vườn khác với trang đầu. */
+.completion-screen{background-image:url("assets/reveal-garden-bg.svg")}
+.completion-frame{position:relative}
+.completion-frame:before{border:2px solid #83aaa1}
+
+@keyframes cloudMove{from{transform:translateX(0)}to{transform:translateX(125vw)}}
+@keyframes cloudMove2{from{transform:translateX(0)}to{transform:translateX(-125vw)}}
+@keyframes letterGardenRise{0%{transform:translate3d(0,0,0) rotate(-8deg);opacity:0}12%{opacity:.85}55%{opacity:.75}100%{transform:translate3d(var(--dx),-115vh,0) rotate(28deg);opacity:0}}
+
+@media(max-width:720px){
+  .characters{height:64vh;margin-top:4px}
+  .character-card{width:min(38vw,205px)}
+  .character-card.dazai{left:2%;bottom:2%}
+  .character-card.levi{right:2%;bottom:2%}
+  .answer-text{font-size:clamp(58px,15vw,90px)}
+  .letter-content{padding:8px 12px 14px}
+  .letter-particles span{font-size:18px}
 }
 
-/* V3 */
-html,body{min-height:100%;background:linear-gradient(135deg,#f3a5bd,#ffdce7 50%,#eda0ba)}
-body{min-height:100dvh}.game{min-height:100dvh}.screen{min-height:100dvh}
-.start-pink:before,.start-pink:after{display:none}
-.floating-decor{position:fixed;inset:0;z-index:45;pointer-events:none;overflow:hidden}
-.float-item{position:absolute;bottom:-60px;opacity:0;filter:drop-shadow(0 2px 1px rgba(125,50,80,.14));animation:floatUp linear infinite}
-.float-item.heart{font-family:"Be Vietnam Pro",sans-serif;color:#fff;font-size:18px}.float-item.bow{font-size:21px;color:#fff}.float-item.butterfly{font-size:18px}
-.h1{left:7%;animation-duration:10s;animation-delay:-2s}.h2{left:23%;animation-duration:13s;animation-delay:-8s}.b1{left:37%;animation-duration:11s;animation-delay:-5s}.f1{left:52%;animation-duration:14s;animation-delay:-11s}.h3{left:66%;animation-duration:9s;animation-delay:-4s}.b2{left:78%;animation-duration:12s;animation-delay:-9s}.f2{left:89%;animation-duration:15s;animation-delay:-7s}.h4{left:14%;animation-duration:16s;animation-delay:-13s}.h5{left:45%;animation-duration:12s;animation-delay:-2s}.b3{left:60%;animation-duration:17s;animation-delay:-15s}.f3{left:73%;animation-duration:10s;animation-delay:-6s}.h6{left:95%;animation-duration:13s;animation-delay:-10s}
-@keyframes floatUp{0%{transform:translate3d(0,40px,0) rotate(-12deg) scale(.75);opacity:0}10%{opacity:.8}45%{transform:translate3d(25px,-42vh,0) rotate(14deg) scale(1)}75%{transform:translate3d(-22px,-78vh,0) rotate(-9deg) scale(.92);opacity:.72}100%{transform:translate3d(18px,-115vh,0) rotate(16deg) scale(.65);opacity:0}}
-.pixel-girl{width:122px;height:205px;right:7%;bottom:65px}.pixel-girl .hair{width:74px;height:88px;left:25px;top:5px;background:#543633;border-radius:45% 48% 38% 42%;box-shadow:-9px 12px 0 #543633,13px 10px 0 #543633}.pixel-girl .face{width:53px;height:60px;left:36px;top:37px;background:#ffd5c1;border-radius:42%;z-index:3}.pixel-girl .face:after{display:none}.bow-hair{position:absolute;z-index:6;left:72px;top:-8px;font-size:31px;transform:rotate(8deg)}.ear{position:absolute;z-index:2;top:52px;width:13px;height:18px;background:#ffd5c1;border-radius:50%}.ear.left{left:30px}.ear.right{left:82px}.eye{position:absolute;top:25px;width:5px;height:7px;background:#51343a;border-radius:50%}.eye.e1{left:14px}.eye.e2{right:14px}.blush{position:absolute;top:34px;width:9px;height:4px;background:#ee9e9f;border-radius:50%;opacity:.8}.blush.bl1{left:7px}.blush.bl2{right:7px}.neck{position:absolute;width:15px;height:11px;background:#f3bda9;left:55px;top:91px;z-index:2}.pixel-girl .body{width:50px;height:43px;left:36px;top:93px;background:#fff5eb;border-radius:10px 10px 4px 4px;z-index:2}.pixel-girl .dress{width:74px;height:69px;left:24px;top:123px;background:#e979a1;clip-path:polygon(24% 0,76% 0,100% 100%,0 100%);z-index:2}.arm{position:absolute;z-index:1;width:12px;height:44px;background:#ffd0bd;border-radius:8px;top:98px}.arm.a1{left:25px;transform:rotate(13deg)}.arm.a2{left:88px;transform:rotate(-13deg)}.pixel-girl .leg{width:12px;height:34px;background:#ffd0bd;bottom:10px;z-index:1}.pixel-girl .l{left:39px}.pixel-girl .r{left:69px}.shoe{position:absolute;bottom:4px;width:22px;height:9px;background:#8d5470;border-radius:8px;z-index:3}.s1{left:32px}.s2{left:64px}
-.question:after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 13% 27%,rgba(255,255,255,.55) 0 3px,transparent 4px),radial-gradient(circle at 86% 31%,rgba(255,255,255,.5) 0 2px,transparent 3px),radial-gradient(circle at 20% 57%,rgba(255,255,255,.4) 0 2px,transparent 3px),radial-gradient(circle at 79% 60%,rgba(255,255,255,.45) 0 3px,transparent 4px)}
-.question-decor{position:absolute;z-index:2;top:9%;left:0;width:100%;text-align:center;color:rgba(255,255,255,.78);font-size:14px;letter-spacing:4px}.tiny-sparkle,.tiny-flower{position:absolute;z-index:2;color:#fff;opacity:.8}.ts1{left:9%;top:38%;font-size:25px}.ts2{right:10%;top:45%;font-size:19px}.tf1{left:5%;bottom:88px;font-size:27px}.tf2{right:7%;bottom:105px;font-size:22px}.question-box{background:rgba(255,250,253,.97);box-shadow:0 0 0 3px #ff67a0,8px 8px 0 rgba(187,79,118,.2)}
-.result-stars,.music-stars{position:absolute;top:9%;color:rgba(255,255,255,.85);font-size:15px;letter-spacing:5px}.music-stars{top:12%;font-size:14px}
-.letter{font-family:"Patrick Hand","Be Vietnam Pro",sans-serif}.letter h2{font-family:"Patrick Hand","Be Vietnam Pro",sans-serif;font-size:30px;font-weight:400}.letter p{font-family:"Patrick Hand","Be Vietnam Pro",sans-serif;font-size:17px;line-height:1.65;letter-spacing:.15px}.letter-date{font-family:"Be Vietnam Pro",sans-serif!important;font-size:9px!important}.signature{font-family:"Patrick Hand","Be Vietnam Pro",sans-serif!important;font-size:18px!important}
-@media(min-width:700px){body{padding:20px 0}.game{min-height:calc(100dvh - 40px);height:calc(100dvh - 40px);border-radius:22px}.floating-decor{position:absolute}}@media(max-width:699px){.game{width:100vw;min-height:100dvh;border-radius:0}}@media(prefers-reduced-motion:reduce){.float-item{animation-duration:18s}.star,.bouquet{animation:none}}
+/* ================= HEART BOOST — V5.1 ================= */
+/* Trang đầu: rất nhiều hoa + tim nhỏ bay từ dưới lên. */
+.petal-field{overflow:hidden;z-index:1}
+.intro-particle{position:absolute;bottom:-30px;opacity:0;font-size:clamp(13px,1.5vw,23px);text-shadow:0 2px 8px rgba(255,255,255,.5);animation:introGardenRise linear infinite;pointer-events:none}
+.intro-particle:nth-child(6n+1),.intro-particle:nth-child(6n+2){color:#e37fa4}
+.intro-particle:nth-child(6n+3),.intro-particle:nth-child(6n+4){color:#78aebd}
+.intro-particle:nth-child(6n+5){color:#78a77e}
+.intro-particle:nth-child(6n){color:#dca8bb}
+
+/* Loading: tăng mật độ tim rõ rệt. */
+.loading-hearts span{font-size:clamp(15px,1.7vw,27px);text-shadow:0 2px 8px rgba(233,132,167,.2)}
+
+/* Trang xe: dày hoa/tim hơn bản V5 cũ. */
+.heart-particles{z-index:3}
+.heart-particles span{font-size:clamp(15px,1.7vw,27px);text-shadow:0 2px 7px rgba(220,112,149,.22)}
+
+/* Khu 30 lá thư: nền sống động hơn nhưng không che nút/thư. */
+.letter-particles{z-index:2}
+.letter-particles span{filter:drop-shadow(0 2px 5px rgba(255,255,255,.22))}
+.letter-particles .heart{font-size:clamp(17px,2.1vw,31px)}
+.letter-particles .flower{font-size:clamp(19px,2.4vw,34px)}
+
+/* Tim chạy theo con trỏ — mỗi nhịp rê chuột bung 2–4 tim. */
+.cursor-heart{position:fixed;z-index:1000;pointer-events:none;line-height:1;color:#dc7095;text-shadow:0 1px 5px rgba(255,255,255,.75);animation:cursorHeartPop .78s cubic-bezier(.2,.75,.25,1) forwards}
+.cursor-heart:nth-child(3n){color:#e783a8}
+.cursor-heart:nth-child(3n+1){color:#79aeb9}
+.cursor-heart:nth-child(3n+2){color:#8aaa7f}
+
+@keyframes introGardenRise{
+  0%{transform:translate3d(0,0,0) rotate(0deg) scale(.75);opacity:0}
+  12%{opacity:.78}
+  55%{opacity:.58}
+  100%{transform:translate3d(var(--dx),-115vh,0) rotate(55deg) scale(1.05);opacity:0}
+}
+@keyframes cursorHeartPop{
+  0%{transform:translate(-50%,-20%) scale(.45) rotate(0deg);opacity:0}
+  15%{opacity:1}
+  100%{transform:translate(calc(-50% + var(--cx)),calc(-20% + var(--cy))) scale(.92) rotate(var(--spin));opacity:0}
+}
+
+
+/* ================= SOFT HEARTS + TINY PASTEL ENVELOPES ================= */
+/* Dứa muốn tim bay chậm, mềm và có cảm giác lơ lửng hơn. */
+.intro-particle{animation-duration:10s!important}
+.loading-hearts span{animation-duration:6.5s!important}
+.heart-particles span{animation-duration:8.5s!important}
+.letter-particles span{animation-duration:10s!important}
+
+/* Rê chuột: nhiều tim nhưng bay chậm hơn một nhịp. */
+.cursor-heart{animation-duration:1.08s!important}
+
+/* 30 lá thư: nhỏ xinh, pastel pink, tuyệt đối không hiện số. */
+.envelope{
+  width:82px!important;
+  height:55px!important;
+  background:#fff4f7!important;
+  border:3px solid #c9829f!important;
+  box-shadow:4px 5px 0 rgba(137,91,111,.18),0 0 0 1px rgba(255,255,255,.75) inset!important;
+}
+.envelope:before{
+  border-left-width:38px!important;
+  border-right-width:38px!important;
+  border-top-width:27px!important;
+  border-top-color:#f5c4d3!important;
+}
+.envelope:after{
+  border-left-width:36px!important;
+  border-right-width:36px!important;
+  border-bottom-width:25px!important;
+  border-bottom-color:#eaa8bf!important;
+}
+.envelope .stamp{
+  width:10px!important;height:10px!important;right:5px!important;top:5px!important;
+  border:1px solid #d38da8!important;background:#f9dce7!important;
+}
+.envelope .mark{
+  font-family:"Dancing Script","Cormorant Garamond",cursive!important;
+  font-size:14px!important;
+  color:#c87596!important;
+  opacity:.9;
+  left:50%!important;top:50%!important;
+  transform:translate(-50%,-20%)!important;
+}
+.envelope.style-1{border-style:double!important;border-width:4px!important}
+.envelope.style-2{border-style:solid!important;outline:1px dashed #e1a7bc!important;outline-offset:2px}
+.envelope.style-3{border-style:dashed!important;border-width:3px!important;box-shadow:4px 5px 0 rgba(194,126,153,.17)!important}
+.envelope.style-4{border-style:double!important;border-width:5px!important;box-shadow:3px 5px 0 rgba(194,126,153,.18)!important}
+
+/* Chữ trong từng lá thư: nét viết tay mềm mại. */
+.letter-content h3,
+.signature,
+.typed-text,
+.letter-date,
+.envelope .mark{
+  font-family:"Dancing Script","Segoe Print","Bradley Hand",cursive!important;
+}
+.typed-text{font-size:clamp(22px,2.1vw,29px)!important;line-height:1.58!important;font-weight:500}
+.letter-content h3{font-size:clamp(40px,4vw,52px)!important;font-weight:600}
+.letter-date{font-size:15px!important;letter-spacing:1px!important}
+.signature{font-size:30px!important;font-weight:600}
+
+/* Font calligraphy cho những chi tiết chữ có thể chạm / bất ngờ ở khu thư. */
+.envelope-title span,.envelope-title small,.completion-frame h2{
+  font-family:"Dancing Script","Cormorant Garamond",cursive!important;
+}
+
+@media(max-width:720px){
+  .envelope{width:68px!important;height:46px!important}
+  .envelope:before{border-left-width:31px!important;border-right-width:31px!important;border-top-width:22px!important}
+  .envelope:after{border-left-width:30px!important;border-right-width:30px!important;border-bottom-width:21px!important}
+  .envelope .mark{font-size:12px!important}
+  .typed-text{font-size:20px!important}
+}
