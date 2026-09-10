@@ -1,190 +1,146 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Một món quà nhỏ 💗</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#f6dbe7">
+  <title>♡ web em tạo nhưng nội dung là lũ bạn tạo nha anh ♡</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Chakra+Petch:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&family=Dancing+Script:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="game">
-<div class="floating-decor" aria-hidden="true">
-<span class="float-item heart h1">♡</span><span class="float-item heart h2">♥</span>
-<span class="float-item bow b1">୨୧</span><span class="float-item butterfly f1">🦋</span>
-<span class="float-item heart h3">♡</span><span class="float-item bow b2">୨୧</span>
-<span class="float-item butterfly f2">🦋</span><span class="float-item heart h4">♥</span>
-<span class="float-item heart h5">♡</span><span class="float-item bow b3">୨୧</span>
-<span class="float-item butterfly f3">🦋</span><span class="float-item heart h6">♡</span>
-</div>
-<!-- MÀN 0 -->
-    <section class="screen active" id="start">
-      <div class="start-pink">
-        <div class="start-sparkle">✦</div>
-        <div class="start-card">
-          <p class="mini">MỘT MÓN QUÀ NHỎ</p>
-          <h1>Dành cho<br><span>một người đặc biệt</span></h1>
-          <p class="sub">Bấm nút bên dưới rồi đi cùng tớ một chút nhé...</p>
-          <button class="pixel-btn" data-next="intro">BẮT ĐẦU <span>›</span></button>
-        </div>
-      </div>
+  <main id="introScreen" class="screen intro-screen">
+    <div class="intro-overlay"></div>
+    <div class="petal-field" aria-hidden="true"></div>
+    <section class="intro-card frame-clickable">
+      <div class="tiny-bow">✦</div>
+      <p class="eyebrow">MỘT BÀI KHẢO SÁT NHO NHỎ</p>
+      <h1>Welcome! Chào mừng anh đến với bài kiểm tra trước khi cho tìm hiểu</h1>
+      <p class="intro-copy">Một vài câu hỏi thôi hehe</p>
+      <button id="nextBtn" class="rect-btn clickable-style">Tiếp theo <span>♡</span></button>
     </section>
-
-    <!-- MÀN 1 -->
-    <section class="screen" id="intro">
-      <div class="sky">
-        <div class="cloud c1"></div><div class="cloud c2"></div><div class="cloud c3"></div>
-        <div class="hearts">♡ ♡ ♡ ♡ ♡</div>
-        <div class="message-box">
-          <span class="arrow">»</span>
-          <p>Chào cậu! Cảm ơn vì đã<br>nhấn vào chiếc web này.</p>
-        </div>
-        <div class="pixel-girl">
-<div class="bow-hair">🎀</div><div class="hair"></div>
-<div class="ear left"></div><div class="ear right"></div>
-<div class="face"><i class="eye e1"></i><i class="eye e2"></i><i class="blush bl1"></i><i class="blush bl2"></i></div>
-<div class="neck"></div><div class="body"></div><div class="arm a1"></div><div class="arm a2"></div>
-<div class="dress"></div><div class="leg l"></div><div class="leg r"></div>
-<div class="shoe s1"></div><div class="shoe s2"></div></div>
-        <div class="flower-bed"></div>
-        <button class="pixel-btn bottom-btn" data-next="q1">TIẾP THEO <span>›</span></button>
-      </div>
-    </section>
-
-    <!-- MÀN 2 -->
-    <section class="screen" id="q1">
-      <div class="sky question">
-<div class="question-decor">✦　♡　✦　୨୧　✦　♡　✦</div>
-<div class="tiny-sparkle ts1">✦</div><div class="tiny-sparkle ts2">✧</div>
-<div class="tiny-flower tf1">✿</div><div class="tiny-flower tf2">❀</div>
-        <div class="cloud c1"></div><div class="cloud c2"></div>
-        <div class="hearts small-hearts">♡ ♡ ♡</div>
-        <div class="question-box">
-          <p>Cậu đoán xem món quà<br>này có vị gì? 🍓</p>
-        </div>
-        <div class="choices">
-          <button class="choice wrong">☕ Cà phê</button>
-          <button class="choice correct" data-success="q1-success">🍓 Dâu ngọt</button>
-        </div>
-        <div class="tiny-cat">🐈</div>
-        <div class="flower-bed"></div>
-      </div>
-    </section>
-
-    <!-- MÀN 3 -->
-    <section class="screen" id="q1-success">
-      <div class="sky result"><div class="result-stars">✦　♡　✧　♡　✦</div>
-        <div class="star">★</div>
-        <p class="result-text">ĐÚNG RỒI! CẬU NHẬN ĐƯỢC<br><b>✦ MỘT NGÔI SAO ✦</b></p>
-        <button class="pixel-btn" data-next="q2">TIẾP THEO <span>›</span></button>
-        <div class="flower-bed"></div>
-      </div>
-    </section>
-
-    <!-- MÀN 4 -->
-    <section class="screen" id="q2">
-      <div class="sky question">
-<div class="question-decor">✦　♡　✦　୨୧　✦　♡　✦</div>
-<div class="tiny-sparkle ts1">✦</div><div class="tiny-sparkle ts2">✧</div>
-<div class="tiny-flower tf1">✿</div><div class="tiny-flower tf2">❀</div>
-        <div class="cloud c1"></div><div class="cloud c2"></div>
-        <div class="hearts small-hearts">♡ ♡ ♡</div>
-        <div class="question-box">
-          <p>Nếu hôm nay hơi mệt,<br>cậu muốn nhận gì nhất?</p>
-        </div>
-        <div class="choices">
-          <button class="choice correct" data-success="q2-success">💌 Một lời nhắn</button>
-          <button class="choice wrong">📚 Thêm bài tập</button>
-        </div>
-        <div class="tiny-cat">🐈‍⬛</div>
-        <div class="flower-bed"></div>
-      </div>
-    </section>
-
-    <!-- MÀN 5 -->
-    <section class="screen" id="q2-success">
-      <div class="sky result"><div class="result-stars">✦　♡　✧　♡　✦</div>
-        <div class="bouquet">💐</div>
-        <p class="result-text">CHÍNH XÁC! CẬU NHẬN ĐƯỢC<br><b>✦ MỘT BÓ HOA ✦</b></p>
-        <button class="pixel-btn" data-next="music">TIẾP THEO <span>›</span></button>
-        <div class="flower-bed"></div>
-      </div>
-    </section>
-
-    <!-- MÀN 6 -->
-    <section class="screen" id="music">
-      <div class="sky music-screen"><div class="music-stars">✦　୨୧　♡　🦋　♡　୨୧　✦</div>
-        <div class="music-hearts">♡ ♡ ♡ ♡</div>
-        <div class="music-card">
-          <div class="album">♪</div>
-          <div class="song-info">
-            <strong>Một bài hát cho cậu</strong>
-            <span>nhấn play và nghe thử nhé ♫</span>
-            <div class="progress"><i></i></div>
-            <div class="controls">
-              <button id="playBtn">▶</button>
-              <span>0:00</span><span class="grow"></span><span>♡</span>
-            </div>
-          </div>
-        </div>
-        <audio id="bgMusic" loop preload="metadata">
-          <!-- Đổi thành tên file nhạc của em, ví dụ: music.mp3 -->
-          <source src="music.mp3" type="audio/mpeg">
-        </audio>
-        <p class="music-hint">Nếu có nhạc riêng, đặt file <b>music.mp3</b> cạnh index.html</p>
-        <button class="pixel-btn" data-next="final-intro">LEVEL COMPLETE <span>›</span></button>
-        <div class="flower-bed"></div>
-      </div>
-    </section>
-
-    <!-- MÀN 7 -->
-    <section class="screen" id="final-intro">
-      <div class="sky">
-        <div class="cloud c1"></div><div class="cloud c2"></div>
-        <div class="hearts">♡ ♡ ♡ ♡ ♡</div>
-        <div class="message-box">
-          <span class="arrow">»</span>
-          <p>Đây là phần cuối rồi...<br>Có một điều tớ muốn nói.</p>
-        </div>
-        <div class="pixel-girl">
-          <div class="hair"></div><div class="face"></div><div class="body"></div>
-          <div class="leg l"></div><div class="leg r"></div><div class="dress"></div>
-        </div>
-        <div class="flower-bed"></div>
-        <button class="pixel-btn bottom-btn" data-next="letter">MỞ THƯ <span>›</span></button>
-      </div>
-    </section>
-
-    <!-- MÀN 8 -->
-    <section class="screen" id="letter">
-      <div class="letter-scene">
-        <div class="petal p1">✿</div><div class="petal p2">✿</div><div class="petal p3">♡</div>
-        <div class="letter">
-          <div class="tape">♡</div>
-          <p class="letter-date">08.09.2026</p>
-          <h2>Gửi cậu,</h2>
-          <p>
-            Tớ không biết phải bắt đầu từ đâu cho thật hay,
-            nên thôi cứ nói những điều đơn giản nhất nhé.
-          </p>
-          <p>
-            Cảm ơn cậu vì đã xuất hiện, vì những cuộc trò chuyện,
-            những khoảnh khắc rất bình thường nhưng lại khiến tớ vui hơn.
-          </p>
-          <p>
-            Mong rằng mỗi khi nhìn thấy món quà nhỏ này,
-            cậu sẽ nhớ rằng có một người luôn mong cậu có thật nhiều
-            ngày vui và thật nhiều điều dịu dàng.
-          </p>
-          <p class="signature">— Từ một người rất quý cậu ♡</p>
-          <div class="photo-placeholder">ẢNH CỦA CHÚNG TA<br><small>thay bằng ảnh của em sau nhé</small></div>
-        </div>
-        <button class="restart" onclick="goTo('start')">↻ XEM LẠI</button>
-      </div>
-    </section>
+    <span class="floating-flower flower-1">✿</span><span class="floating-flower flower-2">❀</span>
+    <span class="floating-flower flower-3">✦</span><span class="floating-flower flower-4">✿</span>
   </main>
+
+  <main id="choiceScreen" class="screen choice-screen hidden">
+    <div class="choice-overlay"></div>
+    <div class="choice-decor decor-a">❀</div><div class="choice-decor decor-b">✿</div>
+    <header class="choice-title">
+      <span class="title-kicker">CÂU HỎI NÀY LÀ CỦA EM</span>
+      <h2>Anh hãy chọn nhân vật em thích nhất ở đây</h2>
+      <p>nghĩ cho kĩ nhá</p>
+    </header>
+
+    <div class="characters" id="characters">
+      <button class="character-card dazai" data-character="dazai" aria-label="Chọn Dazai">
+        <span class="character-frame" aria-hidden="true"><img src="assets/frame-dazai.svg" alt=""></span>
+        <img class="character-img" src="assets/dazai.png" alt="Dazai">
+      </button>
+      <button class="character-card levi" data-character="levi" aria-label="Chọn Levi">
+        <span class="character-frame" aria-hidden="true"><img src="assets/frame-levi.svg" alt=""></span>
+        <img class="character-img" src="assets/levi.png" alt="Levi">
+      </button>
+    </div>
+
+    <button id="loveAnswer" class="love-answer hidden" type="button" aria-label="Bấm để tiếp tục">
+      <span class="answer-line"></span>
+      <span class="answer-text">Ở đây có mỗi anh à, ai cho anh chọn ngừi khác zị hả</span>
+      <span class="answer-line"></span>
+    </button>
+  </main>
+
+  <section id="loveScreen" class="love-screen hidden" aria-hidden="true">
+    <div id="loadingScene" class="scene loading-scene">
+      <div class="loading-floral-bg"></div>
+      <div class="loading-hearts" id="loadingHearts"></div>
+      <div class="loading-box frame-clickable">
+        <div class="loading-track"><div id="loadingFill"></div></div>
+        <div class="loading-percent" id="loadingPercent">0%</div>
+        <div class="loading-text">CHỜ MỘT XÍU NÈ . . .</div>
+      </div>
+    </div>
+
+    <div id="journeyScene" class="scene journey-scene hidden">
+      <div class="journey-sky"></div>
+      <div id="heartParticles" class="heart-particles"></div>
+      <div class="cloud cloud-a"></div><div class="cloud cloud-b"></div>
+      <div class="welcome-card frame-surprise" id="welcomeCard">
+        <div class="card-corner c1"></div><div class="card-corner c2"></div>
+        <p class="journey-kicker">đây là 1 đống câu hỏi của lũ bạn em</p>
+        <h2>Welcome to my "động bàn tơ"</h2>
+        <div class="welcome-row">
+          <button class="slider-arrow" type="button">‹</button>
+          <div class="love-picture">
+            <svg viewBox="0 0 250 132" aria-hidden="true">
+              <rect x="3" y="3" width="244" height="126" fill="#fffafc" stroke="#db7fa8" stroke-width="5"/>
+              <rect x="12" y="12" width="226" height="108" fill="none" stroke="#9bc5bd" stroke-width="2" stroke-dasharray="5 5"/>
+              <path d="M125 105C87 79 67 58 74 41c5-14 22-18 35-8l16 14 16-14c13-10 30-6 35 8 7 17-13 38-51 64Z" fill="#ed4a82"/>
+              <path d="M125 91c-17-12-28-23-30-33-2-7 6-12 13-8l17 15 17-15c7-4 15 1 13 8-2 10-13 21-30 33Z" fill="#ff88ad"/>
+              <text x="125" y="28" text-anchor="middle" fill="#a33c6c" font-family="Dancing Script" font-size="20" font-weight="700">Love</text>
+            </svg>
+          </div>
+          <button class="slider-arrow" type="button">›</button>
+        </div>
+        <label class="name-label" for="personName">Tên của anh</label>
+        <input id="personName" class="name-input" type="text" autocomplete="off" maxlength="40" placeholder="Nhập tên của anh vào đây...">
+        <button id="openLetterBtn" class="rect-btn small-open clickable-style" type="button">♡ Mở thư ♡</button>
+        <div id="nameError" class="name-error" aria-live="polite"></div>
+      </div>
+
+      <div class="road"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+      <div class="bus" aria-hidden="true"><img src="assets/pink-bus.png" alt=""></div>
+    </div>
+
+    <div id="letterScene" class="letter-scene hidden" aria-hidden="true">
+      <div class="letter-backdrop"></div>
+      <div id="letterParticles" class="letter-particles" aria-hidden="true"></div>
+      <div class="envelope-title frame-surprise">
+        <span>trả lời cho hết 30 câu nha chàng</span>
+        <small id="letterCounter">Còn 30 câu</small>
+      </div>
+      <div id="fallingEnvelopes" class="falling-envelopes"></div>
+      <div id="completionScreen" class="completion-screen hidden">
+        <div class="completion-frame">
+          <span class="completion-flower">✿</span>
+          <p>30 / 30 câu</p>
+          <h2>thén kìu vì đã trả lời</h2>
+          <span class="completion-flower">❀</span>
+        </div>
+      </div>
+      <div id="letterModal" class="letter-modal hidden" role="dialog" aria-modal="true" aria-label="Nội dung thư">
+        <div class="paper-stack">
+          <div class="paper paper-back"></div><div class="paper paper-mid"></div>
+          <article class="letter">
+            <button id="closeLetter" class="close-letter" type="button" aria-label="Đóng thư">×</button>
+            <div class="letter-inner">
+              <div class="balloon-gift">
+                <svg viewBox="0 0 230 270" aria-hidden="true">
+                  <path d="M81 117C58 86 59 53 82 38c24-15 48 5 37 32-10 25-30 38-38 47Z" fill="#ed4267"/>
+                  <path d="M112 116C97 88 99 52 125 38c25-13 45 11 32 37-11 21-32 34-45 41Z" fill="#ff7390"/>
+                  <path d="M82 111l18 77M112 110l-3 78M137 102l-20 86" fill="none" stroke="#b84e6c" stroke-width="3"/>
+                  <path d="M83 185q24 12 49 0l-6 49q-18 14-38 0Z" fill="#fff" stroke="#b84e6c" stroke-width="4"/>
+                  <path d="M89 187h37v48H89Z" fill="#ff8fa6" opacity=".6"/>
+                  <path d="M89 187l18 12 19-12M107 199v36" fill="none" stroke="#b84e6c" stroke-width="4"/>
+                  <path d="M99 192q8-11 17 0-9 11-17 0Z" fill="#ff4f79"/>
+                </svg>
+              </div>
+              <div class="letter-content">
+                <h3 id="letterTitle">Gửi anh!</h3>
+                <div id="letterDate" class="letter-date"></div>
+                <div id="typedText" class="typed-text"></div><span class="typing-cursor"></span>
+                <div id="letterSignature" class="signature">♡♡♡♡♡♡♡♡♡♡♡♡</div>
+              </div>
+              <span class="letter-deco ld1">♡</span><span class="letter-deco ld2">❀</span><span class="letter-deco ld3">✦</span>
+            </div>
+          </article>
+        </div>
+      </div>
+      <button id="closeEnvelopeLayer" class="close-layer" type="button" aria-label="Đóng khu thư">×</button>
+    </div>
+  </section>
 
   <script src="script.js"></script>
 </body>
